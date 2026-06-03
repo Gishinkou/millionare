@@ -9,8 +9,14 @@ import java.util.*;
 public class P49_GroupAnagrams {
 
     public List<List<String>> groupAnagrams(String[] strs) {
-        // TODO
-        return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+        int n = strs.length;
+        for (int i = 0; i < n; i++) {
+            char[] arr = strs[i].toCharArray();
+            Arrays.sort(arr);
+            map.computeIfAbsent(String.valueOf(arr), k -> new ArrayList<>()).add(strs[i]);
+        }
+        return map.values().stream().toList();
     }
 
     public static void main(String[] args) {

@@ -9,8 +9,15 @@ import java.util.*;
 public class P55_JumpGame {
 
     public boolean canJump(int[] nums) {
-        // TODO
-        return false;
+        int n = nums.length;
+        int canReach = 0;
+        for (int i = 0; i < n; i++) {
+            if (canReach < i) {
+                return false;
+            }
+            canReach = Math.max(canReach, i + nums[i]);
+        }
+        return true;
     }
 
     public static void main(String[] args) {

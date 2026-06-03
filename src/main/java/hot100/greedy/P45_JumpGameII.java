@@ -9,7 +9,16 @@ import java.util.*;
 public class P45_JumpGameII {
 
     public int jump(int[] nums) {
-        // TODO
+        int n = nums.length;
+        int canReach = 0;
+        int maxReach = 0;
+        int jump = 0;
+        for (int i = 0; i < n; i++) {
+            if (canReach < i) {
+                jump += 1;
+            }
+            maxReach = Math.max(maxReach, i + nums[i]);
+        }
         return 0;
     }
 

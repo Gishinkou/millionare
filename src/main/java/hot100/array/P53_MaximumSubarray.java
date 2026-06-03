@@ -9,8 +9,14 @@ import java.util.*;
 public class P53_MaximumSubarray {
 
     public int maxSubArray(int[] nums) {
-        // TODO
-        return 0;
+        int pre = 0;
+        int ans = nums[0];
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            pre = Math.max(nums[i], pre + nums[i]);
+            ans = Math.max(ans, pre);
+        }
+        return ans;
     }
 
     public static void main(String[] args) {
